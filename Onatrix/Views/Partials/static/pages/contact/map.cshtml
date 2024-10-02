@@ -1,0 +1,67 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var error_name = ViewData["error-name"] != null && !string.IsNullOrEmpty(ViewData["error-name"]?.ToString());
+
+    var error_email = ViewData["error-email"] != null && !string.IsNullOrEmpty(ViewData["error-email"]?.ToString());
+
+    var error_phone = ViewData["error-phone"] != null && !string.IsNullOrEmpty(ViewData["error-phone"]?.ToString());
+    
+}
+
+<section class="map">
+                <div class="img-map">
+                    <iframe src="@Model.Value("mapImageUrl")" width="100%" height="748" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
+            <section class="contact-information">
+
+                <div class="container bg-light">
+                    <div class="contact-form bg-light">
+                        <h6>@Model.Value("mapFormHeading")</h6>
+                        <h2>@Model.Value("mapFormTitle")</h2>
+                        <p>@Model.Value("mapFormText")</p>
+
+                   
+                         @using (Html.BeginUmbracoForm("HandleSubmit", "HomeSurface", FormMethod.Post, new { id = "contactForm", onsubmit = "return validateForm()", novalidate = "novalidate" }))
+
+                     {
+                            <div class="input-form-group">
+                                <label for="name"></label>
+                                <input class="name" type="text" placeholder="Name" id="name" name="name" value="@ViewData["name"]">
+                                <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">@ViewData["error-name"]</span>
+                            </div>
+
+                            <div class="input-form-group">
+                                <label for="email"></label>
+                                <input class="email" type="email" placeholder="Email address" id="email" name="email" value="@ViewData["email"]">
+
+                                <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">@ViewData["error-email"]</span>
+                            </div>
+
+                            <div class="input-form-group">
+                                <label for="phone"></label>
+                                <input class="phone" type="text" placeholder="Phone" id="phone" name="phone" value="@ViewData["phone"]">
+                                <span class="form-input-error @((error_phone) ? "form-invalid-input" : null)">@ViewData["error-phone"]</span>
+                            </div>
+
+                            <select name="service" id="service">
+                                <option value="service">Financial consulting</option>
+                                <option value="service1">Service 1</option>
+                                <option value="service2">Service 2</option>
+                                <option value="service3">Service 3</option>
+                            </select>
+                             <button type="submit" class=" btn btn-primary">@Model.Value("mapFormButtonText")</button>
+
+                            @if (TempData["submitted"] != null!)
+                            {
+                                <div class"Submitted-messaege">@TempData["submitted"]</div>
+                            }
+                        }
+
+                     </div>
+
+
+                </div>
+            </section>

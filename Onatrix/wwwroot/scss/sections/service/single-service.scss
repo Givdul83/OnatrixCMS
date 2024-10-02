@@ -1,0 +1,265 @@
+@import "../../mixins/mixins-media.scss";
+@import "../../../scss/colors/colors.scss";
+
+.service-details {
+    padding: 30px 0 0 0;
+
+    .container {
+
+        .content {
+
+            @include desktop {
+                display: flex;
+                margin-top: 60px;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                @include desktop {
+                    display: block;
+                    padding: 30px 100px 0 0;
+                }
+
+                .header-nav {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: left;
+
+                    h4 {
+                        text-align: left;
+                        font-weight: 600;
+                    }
+
+                    img {
+                        margin: 15px 0;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        text-align: center;
+
+                        @include desktop {
+                            text-align: left;
+                        }
+                    }
+                }
+
+                .box {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    border-radius: 3px;
+                    max-width: 306px;
+                    height: 223px;
+                    padding: 30px 20px;
+                    margin: 25px 0;
+
+                    @include desktop {
+                        max-width: 350px;
+                        padding: 30px 35px;
+                    }
+
+                    h4 {
+                        align-self: flex-start;
+                        color: var(--color-accent);
+                        font-weight: 600;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+
+                    form {
+                        display: flex;
+                        width: 100%;
+                        position: relative;
+
+                        input {
+                            display: flex;
+                            width: 100%;
+                            position: relative;
+                            padding: 20px 15px;
+                            border: 1px solid var(--color-primary);
+                            border-radius: 3px;
+
+                            &::placeholder {
+                                font-size: 13px;
+                                color: #9C9EA6;
+                                font-style: italic;
+                            }
+                        }
+
+                        button {
+                            position: absolute;
+                            right: 15px;
+                            top: 17px;
+                            border: none;
+                            color: var(--color-primary);
+                            background-color: var(--color-light);
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+
+            hr {
+                background-color: #ECECEC;
+                width: 90%;
+
+                @include desktop {
+                    display: none;
+                }
+            }
+
+            .info {
+                margin: 40px 0;
+
+                @include desktop {
+                    border-left: 1px solid #ECECEC;
+                    padding-left: 100px;
+                }
+
+                .imgOne {
+                    width: 90%;
+
+                    @include desktop {
+                        width: 100%;
+                    }
+                }
+
+                h3 {
+                    color: var(--color-primary);
+                    font-size: 25px;
+                    font-weight: 700;
+                    margin-top: 30px;
+                }
+
+                p {
+                    font-size: 14px;
+
+                    @include desktop {
+                        padding-right: 80px;
+                    }
+                }
+
+                .points {
+
+                    .point {
+                        display: flex;
+                       gap:10px;
+
+                        span {
+                            display: inline-block;
+                            min-width: 7px;
+                            height: 7px;
+                            background-color: var(--color-secondary);
+                            border-radius: 50%;
+                            margin-top: 7px;
+                            
+
+
+                            .circles {
+                                display: inline-block;
+                                width: 6px;
+                                height: 6px;
+                                background-color: var(--color-secondary);
+                                border-radius: 50%;
+                            }
+                        }
+
+                        p {
+                            font-size: 14px;
+                            padding-right: 0;
+                        }
+                    }
+                }
+
+                .imgTwo {
+                    width: 90%;
+                    margin-top: 20px;
+
+                    @include desktop {
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+        .question-form {
+            margin-bottom: 30px;
+
+            @include desktop {
+                padding-bottom: 50px;
+            }
+
+            h3 {
+                color: var(--color-primary);
+                font-size: 25px;
+                font-weight: 700;
+                margin-top: 30px;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                @include desktop {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: 'name email' 'textarea textarea' 'button button';
+                }
+
+                input {
+                    border: 1px solid #9C9EA6;
+                    padding: 20px 15px;
+                    border-radius: 3px;
+
+                    &::placeholder {
+                        font-size: 13px;
+                        color: #9C9EA6;
+                        font-style: italic;
+                    }
+                }
+
+                .name {
+                    grid-area: name;
+                }
+
+                .email {
+                    grid-area: email;
+                }
+
+                textarea {
+                    grid-area: textarea;
+                    border: 1px solid #9C9EA6;
+                    border-radius: 3px;
+                    height: 175px;
+                    padding: 20px 15px;
+                    font-family: poppins;
+                    color: #9C9EA6;
+
+                    &::placeholder {
+                        font-size: 13px;
+                        color: #9C9EA6;
+                        font-style: italic;
+                    }
+                }
+
+                button {
+                    grid-area: button;
+                    justify-self: start;
+                    align-self: start;
+                    width: auto;
+                }
+            }
+        }
+    }
+}

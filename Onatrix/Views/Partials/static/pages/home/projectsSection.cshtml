@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var projectOneImage = Model?.Value<IPublishedContent>("projectOneImage")?.Url() ?? "";
+    var projectTwoImage = Model?.Value<IPublishedContent>("projectTwoImage")?.Url() ?? "";
+    var projectThreeImage = Model?.Value<IPublishedContent>("projectThreeImage")?.Url() ?? "";
+    var projectFourImage = Model?.Value<IPublishedContent>("projectFourImage")?.Url() ?? "";
+    
+}
+<section class="our-projects">
+ 
+<div class="container">
+    <h6>@Model?.Value("projectsHeading")</h6>
+    <h2>@Model?.Value("projectsTitle")</h2>
+</div>
+ 
+<div class="project-flex">
+    <div class="box">
+        <img src="@projectOneImage" alt="our projects">
+ 
+        <div class="info-opacity bg-primary">
+            <h5>@Model?.Value("projectOneTitle")</h5>
+            <p class="text">@Model?.Value("projectOneText")</p>
+        </div>
+    </div>
+ 
+    <div class="box">
+        <img src="@projectTwoImage" alt="our projects">
+ 
+        <div class="info-primary bg-primary">
+ 
+            <div class="text">
+                <h5>@Model?.Value("projectTwoTitle")</h5>
+                <p class="text">@Model?.Value("projectTwoText")</p>
+            </div>
+ 
+            <div class="button">
+                <a><i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="box">
+        <img src="@projectThreeImage" alt="our projects">
+ 
+        <div class="info-opacity bg-primary">
+            <h5>@Model?.Value("projectThreeTitle")</h5>
+            <p class="text">@Model?.Value("projectThreeText")</p>
+        </div>
+    </div>
+ 
+    <div class="box">
+        <img src="@projectFourImage" alt="our projects">
+ 
+        <div class="info-opacity bg-primary">
+            <h5>@Model?.Value("projectFourTitle")</h5>
+            <p class="text">@Model?.Value("projectFourText")</p>
+        </div>
+    </div>
+</div>
+</section>

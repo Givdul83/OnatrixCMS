@@ -1,0 +1,64 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+@using Umbraco.Cms.Web.Common.PublishedModels;
+
+
+@inject IPublishedUrlProvider PublishedUrlProvider
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+
+@{ 
+    var selection = Model.Ancestors().ToArray();
+    var homePageDisplayName = "Home";
+    var isFirstItem = true;
+
+    var isHomePage = Model.Url(PublishedUrlProvider) == "/";
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var breadcrumb = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "breadcrumb") ?? null;
+
+    var backgroundImageLeft = breadcrumb?.Value<IPublishedContent>("backgroundImageLeft")?.Url() ?? "";
+    var backgroundImageRight = breadcrumb?.Value<IPublishedContent>("backgroundImageRight")?.Url() ?? "";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+              
+}
+    
+
+    @if(!isHomePage){
+
+            <section class="breadcrumb-navigation">
+                
+                <div class="img">
+                        <img class="left" src="@backgroundImageLeft" alt="breadcrumb-image-left">
+                        <img class="right" src="@backgroundImageRight" alt="breadcrumb-image-right">
+                    </div>
+                <div class="container">
+
+                     
+
+                    <h2>@Model.Value("pageTitle")</h2>
+
+        
+
+                    @if (selection?.Length > 0)
+                    {
+                          <div class="links">
+                        <div class="breadcrumb">
+                           
+                            @foreach (var item in selection.OrderBy(x => x.Level))
+                            {
+                                var nameToDisplay = isFirstItem ? homePageDisplayName : item.Name ;
+                                <div><a class="gray-link" href="@item.Url(PublishedUrlProvider)">@nameToDisplay</a></div>
+                                <p>></p>
+
+                            isFirstItem = false;
+                            }
+
+                            
+                            <div class="active">@Model.Name</div>
+                        </div>
+                          </div>
+                    }
+        </div>
+        </section>
+    }

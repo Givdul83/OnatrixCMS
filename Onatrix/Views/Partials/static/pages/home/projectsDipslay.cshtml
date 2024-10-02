@@ -1,0 +1,49 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using Umbraco.Cms.Core.Routing;
+@inject IPublishedUrlProvider PublishedUrlProvider;
+ 
+ 
+@{
+  var content = Umbraco.Content(Guid.Parse("2d9105f4-07c4-439f-9349-d851cbef3b69"));
+  var selection = Enumerable.Empty<IPublishedContent>();
+   
+    if (content != null)
+    {
+        selection = content.ChildrenOfType("projectItemTemplate").Where(x => x.IsVisible());
+    }
+    
+}
+
+<section class="our-projects">
+ 
+<div class="container">
+    <h6>@Model?.Value("projectsHeading")</h6>
+    <h2>@Model?.Value("projectsTitle")</h2>
+</div>
+
+    <div class="project-flex">
+    @foreach(var item in selection)
+        {
+        var title = item?.Value<string>("pageTitle") ?? "";
+        var thumbnail = item?.Value<IPublishedContent>("projectHomeImage")?.Url() ?? "";
+        var financial = item?.Value<string>("projectFinancial") ?? "";  
+            <a href="@item.Url()" class="box rotate">
+        
+            <img src="@thumbnail" alt="our projects">
+    
+            <div class="info-opacity bg-primary">
+                <h5>@title</h5>
+                <p class="text">@financial</p>
+                <i class="fa-solid fa-chevron-right croc"></i>
+            </div>
+            </a>
+        }
+        </div>
+        
+   
+    
+
+</section>
+
+

@@ -1,0 +1,116 @@
+@import "../../mixins/mixins-media.scss";
+@import "../../colors/colors.scss";
+
+.our-projects {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop {
+        padding-top: 260px;
+    }
+
+    .container {
+
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @include desktop {
+            display: block;
+        }
+    }
+
+    .project-flex {
+
+        @include desktop {
+            display: flex;
+            padding-top: 40px;
+        }
+
+        .box {
+            width: 100%;
+            position: relative;
+
+            @include desktop {
+                max-width: 480px;
+            }
+
+
+            &:hover img {
+                z-index: 2;
+            }
+
+            &:hover .info-opacity {
+                background-color: var(--color-primary);
+                transform: scaleY(1.10);
+                transition: ease-in-out 0.3s;
+                z-index: 3;
+
+                h5 {
+                    color: var(--color-secondary);
+                }
+
+                .croc {
+                    opacity: 1;
+                }
+            }
+
+            img {
+                position: relative;
+            }
+
+            .info-opacity {
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+                z-index: 1;
+                padding: 25px 50px 20px 20px;
+                bottom: 0;
+                display: grid;
+                grid-template-areas: "head icon" "text icon";
+
+
+
+                h5 {
+                    grid-area: head;
+                    font-weight: 500;
+                    color: var(--color-light);
+                }
+
+                p {
+                    grid-area: text;
+                    color: var(--color-light);
+                }
+
+                .croc {
+                    grid-area: icon;
+                    color: var(--color-light);
+                    text-decoration: none;
+                    font-size: 60px;
+                    align-self: end;
+                    opacity: 0;
+                }
+            }
+        }
+
+        .rotate {
+            perspective: 1000px;
+            transition: transform 0.3s ease - out;
+            transform: rotateY(90deg);
+            opacity: 0;
+        }
+
+        .rotate.rotated {
+            transform: rotateY(0deg);
+            opacity: 1;
+            transition: transform 1.5s ease - out, opacity 0.3s ease - out;
+        }
+    }
+}
+

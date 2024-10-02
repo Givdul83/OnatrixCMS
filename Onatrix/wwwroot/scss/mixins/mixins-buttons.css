@@ -1,0 +1,15 @@
+﻿/*a {
+    @include btn;
+    @include button-colors(var(--color-primary),var(--color-secondary),var(--color-accent),var(--color-primary));
+}
+
+button {
+    @include btn;
+    @include button-colors(var(--color-primary),var(--color-secondary),var(--color-accent),var(--color-primary));
+}
+
+.btn-primary {
+    @include btn;
+    @include button-colors(var(--color-primary),var(--color-secondary),var(--color-accent),var(--color-primary));
+}
+*/

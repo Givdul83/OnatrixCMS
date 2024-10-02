@@ -1,0 +1,10 @@
+@import "../mixins/mixins.scss";
+
+.wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    @include desktop {
+        grid-template-rows: auto 1fr auto;
+    }
+}

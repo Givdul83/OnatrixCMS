@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var tinaImage = Model?.Value<IPublishedContent>("tinaImage")?.Url() ?? "";
+    
+}
+ <section class="about-tina">
+                <div class="container">
+                    <div class="content-left">
+                        <img src="@tinaImage" alt="Tina Fox">
+                        <p>@Model.Value("imageText")</p>
+                    </div>
+
+                    <div class="content-right">
+                        <p class="quote">“@Model.Value("tinaQuote")”</p>
+                        <p>@Model.Value("tinaText")</p>
+                    </div>
+                </div>
+            </section>

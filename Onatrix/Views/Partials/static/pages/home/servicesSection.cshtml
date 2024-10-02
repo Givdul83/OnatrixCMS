@@ -1,0 +1,60 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var serviceImage1 = Model?.Value<IPublishedContent>("cardOneImage")?.Url() ?? "";
+    var serviceImage2 = Model?.Value<IPublishedContent>("cardTwoImage")?.Url() ?? "";
+    var serviceImage3 = Model?.Value<IPublishedContent>("cardThreeImage")?.Url() ?? "";
+    var serviceImage4 = Model?.Value<IPublishedContent>("cardFourImage")?.Url() ?? "";
+    var serviceImage5 = Model?.Value<IPublishedContent>("cardFiveImage")?.Url() ?? "";
+    var serviceImage6 = Model?.Value<IPublishedContent>("cardSixImage")?.Url() ?? "";
+    
+}
+
+
+<section class="our-services bg-gray">
+    <div class="container">
+        <div class="heading">
+            <h6>@Model.Value("ourServicesHeading")</h6>
+            <h2>@Model.Value("ourServicesTitle")</h2>
+        </div>
+ 
+        <div class="projects-grid">
+            <div class="box">
+                <h5>@Model.Value("cardOneTitle")</h5>
+                <img src="@serviceImage1" alt="Risk Management">
+                <p class="text">@Model.Value("cardOneText")</p>
+            </div>
+ 
+            <div class="box">
+                <h5>@Model.Value("cardTwoTitle")</h5>
+                <img src="@serviceImage2" alt="Bonds & Commodities">
+                <p class="text">@Model.Value("cardTwoText")</p>
+            </div>
+ 
+            <div class="box">
+                <h5>@Model.Value("cardThreeTitle")</h5>
+                <img src="@serviceImage3" alt="Assurance & Audits">
+                <p class="text">@Model.Value("cardThreeText")</p>
+            </div>
+ 
+            <div class="box">
+                <h5>@Model.Value("cardFourTitle")</h5>
+                <img src="@serviceImage4" alt="Tax and Trusts">
+                <p class="text">@Model.Value("cardFourText")</p>
+            </div>
+ 
+            <div class="box">
+                <h5>@Model.Value("cardFiveTitle")</h5>
+                <img src="@serviceImage5" alt="Financial Advisor">
+                <p class="text">@Model.Value("cardFiveText")</p>
+            </div>
+ 
+           
+            <div class="box">
+                <h5>@Model.Value("cardSixTitle")</h5>
+                <img src="@serviceImage6" alt="Statistic Advisors">
+                <p class="text">@Model.Value("cardSixText")</p>
+            </div>
+        </div>
+    </div>
+</section>

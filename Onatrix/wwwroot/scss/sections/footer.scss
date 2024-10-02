@@ -1,0 +1,23 @@
+@import "../mixins/mixins-media.scss";
+
+footer {
+    padding: 10px 0;
+
+    .container {
+        font-size: 12px;
+
+        @include desktop {
+            font-size: 14px;
+        }
+
+        p {
+            font-weight: 400;
+            color: var(--color-primary);
+        }
+
+        a {
+            color: var(--color-secondary);
+            font-weight: 400;
+        }
+    }
+}

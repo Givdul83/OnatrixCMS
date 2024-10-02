@@ -1,0 +1,194 @@
+﻿[
+  {
+    "outputFile": "wwwroot/scss/colors/mixins/mixins-colors.css",
+    "inputFile": "wwwroot/scss/colors/mixins/mixins-colors.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/colors/backgrounds.css",
+    "inputFile": "wwwroot/scss/colors/backgrounds.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/colors/base.css",
+    "inputFile": "wwwroot/scss/colors/base.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/colors/buttons.css",
+    "inputFile": "wwwroot/scss/colors/buttons.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/colors/colors.css",
+    "inputFile": "wwwroot/scss/colors/colors.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/colors/heading.css",
+    "inputFile": "wwwroot/scss/colors/heading.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/colors/links.css",
+    "inputFile": "wwwroot/scss/colors/links.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/colors/root.css",
+    "inputFile": "wwwroot/scss/colors/root.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/components/button.css",
+    "inputFile": "wwwroot/scss/components/button.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/components/container.css",
+    "inputFile": "wwwroot/scss/components/container.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/components/links.css",
+    "inputFile": "wwwroot/scss/components/links.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/components/typography.css",
+    "inputFile": "wwwroot/scss/components/typography.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/components/wrapper.css",
+    "inputFile": "wwwroot/scss/components/wrapper.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/components/components.css",
+    "inputFile": "wwwroot/scss/components/components.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/misc/base.css",
+    "inputFile": "wwwroot/scss/misc/base.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/misc/misc.css",
+    "inputFile": "wwwroot/scss/misc/misc.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/mixins/mixins-buttons.css",
+    "inputFile": "wwwroot/scss/mixins/mixins-buttons.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/mixins/mixins-content.css",
+    "inputFile": "wwwroot/scss/mixins/mixins-content.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/mixins/mixins-media.css",
+    "inputFile": "wwwroot/scss/mixins/mixins-media.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/mixins/mixins-typography.css",
+    "inputFile": "wwwroot/scss/mixins/mixins-typography.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/mixins/mixins.css",
+    "inputFile": "wwwroot/scss/mixins/mixins.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/footer.css",
+    "inputFile": "wwwroot/scss/sections/footer.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/header.css",
+    "inputFile": "wwwroot/scss/sections/header.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/sections.css",
+    "inputFile": "wwwroot/scss/sections/sections.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/main.css",
+    "inputFile": "wwwroot/scss/main.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/theme.css",
+    "inputFile": "wwwroot/scss/theme.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/home/brands.css",
+    "inputFile": "wwwroot/scss/sections/home/brands.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/brands.css",
+    "inputFile": "wwwroot/scss/sections/brands.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/home/clients.css",
+    "inputFile": "wwwroot/scss/sections/home/clients.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/home/hero.css",
+    "inputFile": "wwwroot/scss/sections/home/hero.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/home/ourservices.css",
+    "inputFile": "wwwroot/scss/sections/home/ourservices.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/home/projects.css",
+    "inputFile": "wwwroot/scss/sections/home/projects.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/home/story.css",
+    "inputFile": "wwwroot/scss/sections/home/story.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/home/home.css",
+    "inputFile": "wwwroot/scss/sections/home/home.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/home/aboutUs.css",
+    "inputFile": "wwwroot/scss/sections/home/aboutUs.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/aboutUs/about-tina.css",
+    "inputFile": "wwwroot/scss/sections/aboutUs/about-tina.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/aboutUs/our-experts.css",
+    "inputFile": "wwwroot/scss/sections/aboutUs/our-experts.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/aboutUs/review-for-our.service.css",
+    "inputFile": "wwwroot/scss/sections/aboutUs/review-for-our.service.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/aboutUs/about-us.css",
+    "inputFile": "wwwroot/scss/sections/aboutUs/about-us.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/breadcrum.css",
+    "inputFile": "wwwroot/scss/sections/breadcrum.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/let-us-know.css",
+    "inputFile": "wwwroot/scss/sections/let-us-know.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/contact/contact.css",
+    "inputFile": "wwwroot/scss/sections/contact/contact.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/contact/map.css",
+    "inputFile": "wwwroot/scss/sections/contact/map.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/service/single-service.css",
+    "inputFile": "wwwroot/scss/sections/service/single-service.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/service/service.css",
+    "inputFile": "wwwroot/scss/sections/service/service.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/project/project-section.css",
+    "inputFile": "wwwroot/scss/sections/project/project-section.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/project/project.css",
+    "inputFile": "wwwroot/scss/sections/project/project.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/project/single-project.css",
+    "inputFile": "wwwroot/scss/sections/project/single-project.scss"
+  }
+]

@@ -1,0 +1,22 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Value("pageTitle") ?? null;
+}
+ 
+ 
+
+@await Html.PartialAsync("static/pages/home/heroSection")
+@await Html.PartialAsync("static/pages/home/aboutUsSection")
+@await Html.PartialAsync("static/serviceContent")
+@await Html.PartialAsync("static/pages/home/clientsSection")
+@await Html.PartialAsync("static/pages/home/storySection")
+@await Html.PartialAsync("static/pages/home/projectsDipslay")
+@await Html.PartialAsync("static/brands")
+ 
+ 
+        
+           
+ 
+   

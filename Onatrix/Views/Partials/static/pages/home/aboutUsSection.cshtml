@@ -1,0 +1,72 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var aboutUsSignatureImage = Model?.Value<IPublishedContent>("aboutUsSignatureImage")?.Url() ?? "";
+
+    var error_name = ViewData["error-name"] != null && !string.IsNullOrEmpty(ViewData["error-name"]?.ToString());
+    var error_email = ViewData["error-email"] != null && !string.IsNullOrEmpty(ViewData["error-email"]?.ToString());
+    var error_phone = ViewData["error-phone"] != null && !string.IsNullOrEmpty(ViewData["error-phone"]?.ToString());
+}
+<section class="about-us bg-light">
+    <div class="container">
+        <div class="content-left">
+            <h6>@Model.Value("aboutUsHeading")</h6>
+            <h2>@Model.Value("aboutUsTitle")</h2>
+            <p class="quote">@Model.Value("aboutUsQuote")</p>
+            <p> @Model.Value("aboutUsText")</p>
+            <img src="@aboutUsSignatureImage")" alt="signature" class="fade">
+            <p>@Model.Value("aboutUsSignatureName")</p>
+        </div>
+ 
+        <div class="content-right bg-light">
+            <div class="title bg-primary">
+                <h3>@Model.Value("aboutUsFormTitle")</h3>
+            </div>
+
+          
+                <div class="form-content">
+                    <p>@Model.Value("aboutUsFormText")</p>
+                @using (Html.BeginUmbracoForm("HandleSubmit", "HomeSurface", FormMethod.Post, new { id = "aboutUsForm", onsubmit = "return validateForm()", novalidate = "novalidate" }))
+
+                {
+                   
+                        <div class="input-form-group">
+                            <label for="name"></label>
+                        <input type="text" placeholder="Name" id="name" name="name" value="@ViewData["name"]">
+                        <span class="form-input-error @((error_name) ? "form-invalid-input" : null)">@ViewData["error-name"]</span>
+                        </div>
+
+                        <div class="input-form-group">
+                            <label for="email"></label>
+                        <input type="email" placeholder="Email address" id="email" name="email" value="@ViewData["email"]">
+
+                            <span class="form-input-error @((error_email) ? "form-invalid-input" : null)">@ViewData["error-email"]</span>
+                        </div>
+
+                        <div class="input-form-group">
+                            <label for="phone"></label>
+                        <input type="text" placeholder="Phone" id="phone" name="phone" value="@ViewData["phone"]">
+                        <span class="form-input-error @((error_phone) ? "form-invalid-input" : null)">@ViewData["error-phone"]</span>
+                        </div>
+
+                        <select name="service" id="service">
+                            <option value="service">Financial consulting</option>
+                            <option value="service1">Service 1</option>
+                            <option value="service2">Service 2</option>
+                            <option value="service3">Service 3</option>
+                        </select>
+                        <button type="submit" class=" btn btn-accent">@Model.Value("aboutUsFormButtonText")</button>
+                  
+                    @if(TempData["submitted"] != null!)
+                    {
+                        <div class="submitted-messaege">@TempData["submitted"]</div>
+                    }
+                
+
+
+            }
+            </div>
+            
+        </div>
+    </div>
+</section>

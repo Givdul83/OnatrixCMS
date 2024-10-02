@@ -1,0 +1,25 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+
+    var homeBrands =rootContents?.FirstOrDefault(x => x.ContentType.Alias == "homePage") ?? null;
+    var brandOne = homeBrands?.Value<IPublishedContent>("brandOne")?.Url() ?? "";
+    var brandTwo = homeBrands?.Value<IPublishedContent>("brandTwo")?.Url() ?? ""; 
+    var brandThree = homeBrands?.Value<IPublishedContent>("brandThree")?.Url() ?? ""; 
+    var brandFour = homeBrands?.Value<IPublishedContent>("brandFour")?.Url() ?? ""; 
+    var brandFive = homeBrands?.Value<IPublishedContent>("brandFive")?.Url() ?? ""; 
+    var brandSix = homeBrands?.Value<IPublishedContent>("brandSix")?.Url() ?? "";
+    
+}
+<section class="brands">
+    <div class="container">
+        <img src="@brandOne" alt="freedombird" class="rotate">
+        <img src="@brandTwo" alt="identity" class="rotate">
+        <img src="@brandThree" alt="natural" class="rotate">
+        <img src="@brandFour" alt="simpleaf" class="rotate">
+        <img src="@brandFive" alt="globe" class="rotate">
+        <img src="@brandSix" alt="fossilgroup" class="rotate">
+    </div>
+</section>

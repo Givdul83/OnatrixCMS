@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using Umbraco.Cms.Core.Routing;
+@inject IPublishedUrlProvider PublishedUrlProvider;
+ 
+ 
+@{
+  var content = Umbraco.Content(Guid.Parse("3078ccc0-14bd-4ae2-a35d-995fbae477cf"));
+  var selection = Enumerable.Empty<IPublishedContent>();
+   
+    if (content != null)
+    {
+        selection = content.ChildrenOfType("expertCardTemplate").Where(x => x.IsVisible());
+    }
+
+	var firstThree = selection.Take(3);
+	var restOfList = selection.Skip(3);
+
+}
+
+<section class="our-experts">
+    <div class="container">
+        <div class="heading">
+                <h6>@Model.Value("expertsHeading")</h6>
+                <h2>@Model.Value("expertsTitle")</h2>
+        </div>
+			<div class="experts">
+                <div class="big">
+						@foreach (var item in firstThree)
+						{
+							var expertName = item?.Value<string>("expertName") ?? "";
+                			var expertImage = item?.Value<IPublishedContent>("expertImage")?.Url() ?? "";
+                			var expertJobTitle = item?.Value<string>("expertJobTitle") ?? "";
+
+							<div class="expert-big rotate">
+                                <img src="@expertImage" alt="@expertName">
+                                <h4>@expertName</h4>
+                                <p>@expertJobTitle</p>
+                            </div>
+						}
+						</div>
+			<div class="small projects-grid">		
+						
+							@foreach(var item in restOfList)
+							{
+								var expertName = item?.Value<string>("expertName") ?? "";
+                				var expertImage = item?.Value<IPublishedContent>("expertImage")?.Url() ?? "";
+                				var expertJobTitle = item?.Value<string>("expertJobTitle") ?? "";
+
+								<div class="expert-small rotate">
+									<img src="@expertImage" alt="@expertName">
+                                	<h4>@expertName</h4>
+                                	<p>@expertJobTitle</p>
+                            	</div>
+							}	
+						</div>
+			</div>
+	</div>
+	
+</section>
+

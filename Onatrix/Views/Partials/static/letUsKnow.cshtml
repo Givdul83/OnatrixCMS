@@ -1,0 +1,69 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Routing;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@inject IPublishedUrlProvider PublishedUrlProvider
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var letUsKnow = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "letUsKnow") ?? null;
+    
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var phone = settings?.Value<string>("officePhone") ?? "";
+    var email = settings?.Value<string>("officeEmailAddress") ?? "";
+
+    var backgroundDots = letUsKnow?.Value<IPublishedContent>("backgroundDots")?.Url() ?? "";
+    var backgroundShape = letUsKnow?.Value<IPublishedContent>("backgroundShape")?.Url() ?? "";
+    var mainImage = letUsKnow?.Value<IPublishedContent>("mainImage")?.Url() ?? ""; 
+
+    var officeTitle = letUsKnow?.Value<string>("officeTitle") ?? "";
+    var phoneTitle = letUsKnow?.Value<string>("phoneTitle") ?? "";
+    var emailTitle = letUsKnow?.Value<string>("emailTitle") ?? "";
+    var letUsKnowTitle = letUsKnow?.Value<string>("letUsKnowTitle") ?? "";
+
+    var isContactPage = Model.Url(PublishedUrlProvider) == "/contact/";
+
+}
+ <section class="about-project @(isContactPage ? "bg-light" : "bg-gray")">
+                <div class="container">
+                    <div class="content-left">
+                        <img class="image rotate" src="@mainImage" alt="David Batra">
+                        <img class="backgroundImage rotate" src="@backgroundDots" alt="Background">
+                        <img class="background fade" src="@backgroundShape" alt="Background David Batra">
+                    </div>
+    
+                    <div class="content-right">
+                        <h2>@letUsKnowTitle</h2>
+    
+                        <div class="information">
+                            <div class="info">
+                                <span><i class="fa-solid fa-location-dot"></i></span>
+
+                                <div class="content">                                
+                                    <p class="title"> @officeTitle</p>
+                                    <p class="text">@officeLocation</p>
+                                </div>
+                            </div>
+    
+                            <div class="info">
+                                <span><i class="fa-solid fa-phone"></i></span>
+
+                                <div class="content">
+                                    <p class="title"> @phoneTitle</p>
+                                    <p class="text phone-number">@phone</p>
+                                </div>
+                            </div>
+    
+                            <div class="info">
+                                <span><i class="fa-solid fa-envelope"></i></span>
+
+                                <div class="content">
+                                    <p class="title"> @emailTitle</p>
+                                    <p class="text email">@email</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

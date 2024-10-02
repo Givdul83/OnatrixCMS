@@ -1,0 +1,26 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var reveiwsImage = Model?.Value<IPublishedContent>("reviewsImage")?.Url() ?? "";
+    
+}
+<section class="review-for-our-service bg-gray">
+                <div class="container">
+                    <div class="content-left">
+                        <h6>@Model.Value("reviewsHeading")</h6>
+                        <h2>@Model.Value("reviewsTitle")</h2>
+                        <p class="quote">@Model.Value("reviewsText")</p>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <span><i class="fa-solid fa-star"></i></span>
+                        <p class="name">@Model.Value("reviewsName")</p>
+                        <p class="company">@Model.Value("reviewsCompany")</p>
+                    </div>
+
+                    <div class="content-right">
+                        <img src="@reveiwsImage" alt="Kevin Gardner">
+                    </div>
+                </div>
+            </section>

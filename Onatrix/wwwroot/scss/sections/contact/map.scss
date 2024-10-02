@@ -1,0 +1,176 @@
+@import "../../mixins/mixins-media.scss";
+
+.map {
+    position: relative;
+
+    .img-map {
+        position: relative;
+    }
+}
+
+.contact-information {
+
+    .container {
+        padding: 20px 0;
+
+        @include desktop {
+            padding: 70px 30px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+
+            @include desktop {
+                height: 567px;
+                width: 1170px;
+                position: absolute;
+                z-index: 1;
+                top: -27rem;
+            }
+
+            h6 {
+            }
+
+            h2 {
+                max-width: 45%;
+            }
+
+            p {
+                font-style: italic;
+                max-width: 50%;
+            }
+
+            #contactForm {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+                width: 80%;
+
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: 'name phone' 'email select' 'button button';
+                }
+
+                input, select {
+                    padding: 20px 10px;
+                    border: 1px solid #9C9EA6;
+                    color: var(--color-dark);
+                    outline: none;
+                    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+                    &::placeholder {
+                        font-size: 13px;
+                        color: #9C9EA6;
+                        font-style: italic;
+                    }
+
+                    &.is-invalid {
+                        border-color: red;
+                        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+                    }
+
+                    &.is-valid {
+                        border-color: green;
+                        box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+                    }
+
+                    &:hover {
+                        border-color: var(--color-primary);
+                    }
+
+                    &:focus {
+                        border-color: var(--color-accent);
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                    }
+                }
+
+
+                .input-form-group {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    width:90%;
+
+                    @include tablet{
+                        width:auto;
+                    }
+
+
+                    input {
+                        padding: 20px 10px;
+                        border: 1px solid #9C9EA6;
+                        color: var(--color-dark);
+                        outline: none;
+
+                        &::placeholder {
+                            font-size: 13px;
+                            color: #9C9EA6;
+                            font-style: italic;
+                        }
+                    }
+
+                    span.form-input-error {
+                        position: absolute;
+                        bottom: -20px;
+                        left: 0;
+                        color: red;
+                        font-size: 12px;
+                        display: none;
+                    }
+
+
+                    span.form-input-error.form-invalid-input {
+                        display: block;
+                        
+                    }
+                }
+
+                .name {
+                    grid-area: name;
+                }
+
+                .phone {
+                    grid-area: phone;
+                }
+
+                .email {
+                    grid-area: email;
+                }
+
+                select {
+                    grid-area: select;
+                    padding: 20px 10px;
+                    border: 1px solid #9C9EA6;
+                    color: #535656;
+                    outline: none;
+                    border-radius: 3px;
+                    width: 90%;
+
+                    @include tablet {
+                        width: auto;
+                    }
+                }
+
+                button {
+                    grid-area: button;
+                    width: 100%;
+
+                    @include desktop {
+                        justify-self: center;
+                        align-self: center;
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+}

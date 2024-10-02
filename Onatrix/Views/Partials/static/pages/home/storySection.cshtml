@@ -1,0 +1,37 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var storyBackgroundImage = Model?.Value<IPublishedContent>("storyBackgroundImage")?.Url() ?? "";
+    var storyImage = Model?.Value<IPublishedContent>("storyImage")?.Url() ?? "";
+    
+}
+<section class="story bg-primary">
+                <div class="container">
+                    <div class="heading">
+                        <h6>@Model.Value("storyHeading")</h6>
+                        <h2>@Model.Value("storyTitle")</h2>
+                    </div>
+ 
+                    <div class="story-content">
+                        <div class="story-flex">
+                            <div>
+                                <p class="number">@Model.Value("storyOneNumber")</p>
+                                <p class="content">@Model.Value("storyOneText")</p>
+                            </div>
+   
+                            <div>
+                                <p class="number">@Model.Value("storyTwoNumber")</p>
+                                <p class="content">@Model.Value("storyTwoText")</p>
+                            </div>
+   
+                            <div>
+                                <p class="number">@Model.Value("storyThreeNumber")</p>
+                                <p class="content">@Model.Value("storyThreeText")</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="backgroundImage" src="@storyBackgroundImage" alt="story">
+ 
+                    <img class="image" src="@storyImage" alt="story">
+                </div>
+            </section>

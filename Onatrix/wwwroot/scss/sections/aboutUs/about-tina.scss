@@ -1,0 +1,36 @@
+@import "../../../scss/mixins/mixins-media.scss";
+
+.about-tina {
+
+    .container {
+        padding: 30px 0;
+
+        @include desktop {
+            display: flex;
+            gap: 50px;
+            padding: 6rem 2rem;
+        }
+
+        .content-left {
+
+            img {
+            }
+
+            p {
+                margin-top: 10px;
+                font-size: 16px;
+                font-style: italic;
+            }
+        }
+
+        .content-right {
+            // .quote {
+            //     font-size: 20px;
+            //     font-style: italic;
+            // }
+
+            p {
+            }
+        }
+    }
+}

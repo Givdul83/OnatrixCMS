@@ -1,0 +1,219 @@
+@import "../../mixins/mixins-media.scss";
+
+.about-us {
+
+    @include desktop {
+        padding-bottom: 100px;
+    }
+
+    .container {
+
+        @include desktop {
+            display: flex;
+            gap: 40px;
+        }
+
+        .content-left {
+            max-width: 670px;
+            padding-top: 50px;
+
+            @include desktop {
+                padding-top: 190px;
+            }
+
+            h6 {
+                color: var(--color-secondary);
+            }
+
+
+            img {
+                margin-bottom: 5px;
+            }
+
+            .fade {
+                opacity: 0;
+                transition: opacity 2s ease-in-out;
+            }
+
+            .fade.visible {
+                opacity: 1;
+            }
+
+            .fade.hidden {
+                opacity: 0;
+            }
+
+            p {
+                font-size: 10px;
+
+                @include desktop {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .content-right {
+            height: 572px;
+            margin: 40px 0;
+            background-color: var(--color-light);
+            box-shadow: 10px 10px 10px rgba(71, 71, 71, 0.1);
+
+            @include desktop {
+                max-width: 470px;
+                margin: 20px 0;
+            }
+
+            .title {
+                padding: 30px 0 30px 30px;
+
+                h3 {
+                    margin-bottom: 0;
+                }
+            }
+
+            .form-content {
+                padding: 0 20px;
+
+                p {
+                    font-size: 13px;
+                    font-style: italic;
+                    padding: 20px 20px;
+
+                    @include desktop {
+                        font-size: 13px;
+                    }
+                }
+
+                #aboutUsForm {
+
+
+                    input, select {
+                        padding: 20px 10px;
+                        border: 1px solid #9C9EA6;
+                        color: var(--color-dark);
+                        outline: none;
+                        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+                        &::placeholder {
+                            font-size: 13px;
+                            color: #9C9EA6;
+                            font-style: italic;
+                        }
+
+                        &.is-invalid {
+                            border-color: red;
+                            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+                        }
+
+                        &.is-valid {
+                            border-color: green;
+                            box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+                        }
+
+                        &:hover {
+                            border-color: var(--color-primary);
+                        }
+
+                        &:focus {
+                            border-color: var(--color-accent);
+                            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                        }
+                    }
+
+
+                    .input-form-group {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding-bottom: 10px;
+
+                        input {
+                            padding: 20px 10px;
+                            border: 1px solid #9C9EA6;
+                            color: var(--color-dark);
+                            outline: none;
+
+                            &::placeholder {
+                                font-size: 13px;
+                                color: #9C9EA6;
+                                font-style: italic;
+                            }
+                        }
+
+                        span.form-input-error {
+                            display: none;
+                            position: absolute;
+                            bottom: -6px;
+                            left: 2px;
+                            color: red;
+                            font-size: 12px;
+                            display: none;
+                        }
+
+
+                        span.form-input-error.form-invalid-input {
+                            display: block;
+                            
+                        }
+                    }
+
+
+                    select {
+                        width: 100%;
+                        padding: 20px 10px;
+                        border: 1px solid #9C9EA6;
+                        color: #535656;
+                        outline: none;
+                        margin-bottom: 10px;
+                        margin-top:10px;
+                    }
+
+                    button {
+                        padding-top: 10px;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
+                input, select {
+                    padding: 20px 10px;
+                    border: 1px solid #9C9EA6;
+                    color: var(--color-dark);
+                    outline: none;
+                    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+                    &::placeholder {
+                        font-size: 13px;
+                        color: #9C9EA6;
+                        font-style: italic;
+                    }
+
+                    &.is-invalid {
+                        border-color: red;
+                        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+                    }
+
+                    &.is-valid {
+                        border-color: green;
+                        box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+                    }
+
+                    &:hover {
+                        border-color: var(--color-primary);
+                    }
+
+                    &:focus {
+                        border-color: var(--color-accent);
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+    
+

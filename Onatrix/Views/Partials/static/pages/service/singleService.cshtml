@@ -1,0 +1,75 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Routing;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@inject IPublishedUrlProvider PublishedUrlProvider
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var singleServiceLeft = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "singleServiceStaticLeft") ?? null;
+
+    var titleLeft = singleServiceLeft?.Value<string>("title") ?? "";
+    var leftImage = singleServiceLeft?.Value<IPublishedContent>("image")?.Url() ?? "";
+    var textLeft = singleServiceLeft?.Value<string>("text") ?? "";
+    
+    var formTitle = singleServiceLeft?.Value<string>("formTitle") ?? "";
+    var formText = singleServiceLeft?.Value<string>("formText") ?? "";
+    var placeholderLeft = singleServiceLeft?.Value<string>("formPlaceholderText") ?? "";
+
+
+    var singleServiceImageOne = Model?.Value<IPublishedContent>("thumbnail")?.Url() ?? "";
+    
+}
+   
+
+
+
+
+
+ <section class="service-details bg-light">
+                <div class="container">
+
+                    <div class="content">
+                        <nav>
+                            <div class="header-nav">
+                                <h4>@titleLeft</h4>
+                                <img src="@leftImage" alt="About us nav image">
+                                <p>@textLeft </p>
+                            </div>
+
+                            <div class="box bg-primary">
+                                <h4>@formTitle</h4>
+                                <p>@formText</p>
+
+                                <form>
+                                    <input type="email" placeholder="@placeholderLeft">
+                                    <button><i class="fa-regular fa-envelope"></i></button>
+                                </form>
+                            </div>
+                        </nav>
+
+                     
+                        <div class="info">
+                       
+                            <img class="imgOne" src="@singleServiceImageOne" alt="Risk Management Image 1">
+
+                           
+                                <p>@Model.Value("serviceContentTop")</p>
+                            
+                                
+                            </div>
+                        </div>
+                    
+
+                    <div class="question-form">
+                        <h3>Have a question ?</h3>
+
+                        <form action="#">
+                            <input class="name" type="text" placeholder="Name">
+                            <input class="email" type="email" placeholder="Email">
+                            <textarea class="text" placeholder="Question"></textarea>
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </section>

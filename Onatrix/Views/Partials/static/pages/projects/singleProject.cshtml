@@ -1,0 +1,115 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using Umbraco.Cms.Core.Routing;
+@inject IPublishedUrlProvider PublishedUrlProvider;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+ 
+ 
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var projectStaticRight= rootContents?.FirstOrDefault(x => x.ContentType.Alias == "projectStaticRight") ?? null;
+
+    var tagsTitle = projectStaticRight?.Value<string>("tagsTitle") ?? "";
+    var tags = projectStaticRight?.Value<IEnumerable<string>>("tags") ?? Enumerable.Empty<string>();
+
+    var formTitle = projectStaticRight?.Value<string>("formTitle") ?? "";
+    var formText = projectStaticRight?.Value<string>("formText") ?? "";
+    var formPlaceholderText = projectStaticRight?.Value<string>("formPlaceholderText") ?? "";
+
+    var formImage = projectStaticRight?.Value<IPublishedContent>("formImage")?.Url() ?? "";
+
+    var content = Umbraco.Content(Guid.Parse("2d9105f4-07c4-439f-9349-d851cbef3b69"));
+    var selection = Enumerable.Empty<IPublishedContent>();
+    var date = Model?.Value<DateTime>("projectDate").ToString("MMMM dd, yyyy") ?? "";
+    
+
+    if (content != null)
+    {
+        selection = content.ChildrenOfType("projectItemTemplate").Where(x => x.IsVisible());
+        
+    }
+    var singleProjectImageOne = Model?.Value<IPublishedContent>("thumbnail")?.Url() ?? "";
+}
+
+
+<section class="single-project bg-light">
+                <div class="container">
+                    <div class="content-left">
+                        <p class="article-date"><i class="fa-solid fa-calendar-days"></i>@date</p>
+                        <h6>@Model.Value("projectIngress")</h6>
+                        <img class="imgOne" src="@singleProjectImageOne" alt="project-details-image-1">
+                     
+
+                       @Model.Value("projectContent")
+
+                            
+                            <div class="tags">
+                                <h6>Tags:</h6>
+                                <a href="#" class="btn btn-accent">Business</a>
+                                <a href="#" class="btn btn-accent">Consulting</a>
+                                <a href="#" class="btn btn-accent">Onatrix</a>
+                            </div>
+                        </div>
+                    
+
+                    <div class="content-right">
+                        <nav>
+                            <div class="recent-projects-info">
+                                <h4>Recent projects</h4>
+                                
+                               
+
+                                    @foreach(var item in selection)
+                        {
+                            
+                            var title = item?.Value<string>("pageTitle") ?? "";
+                            var singleDate = item?.Value<DateTime>("projectDate").ToString("MMMM dd, yyyy") ?? "";
+                            var thumbnail = item?.Value<IPublishedContent>("thumbnail")?.Url() ?? "";
+                            <a href="@item.Url()" class="articles">
+                                <div class="recent-projects">
+                                <img class="project-thumbnail" src="@thumbnail" alt="article-image">
+                            
+                                     <div class="info">
+                                        <h6>@title</h6>
+                                        <p class="date"><i class="fa-solid fa-calendar-days"></i> @singleDate</p>
+                                       
+                                    </div>
+                                    
+                                </div>
+                                  
+                            </a>  
+                            <hr class="line">
+                            
+                        }
+                                </div>
+                          
+
+                            <h4 class="title">Tags</h4>
+
+                            <div class="buttons">
+                              
+                                 @foreach(var tag in tags)
+                                    {
+                               
+                                <div>
+                                    <a href="#" class="btn btn-light">@tag</a>
+                                   
+                                 </div>
+                                     }
+                            </div>
+                           
+
+                             <div class="box bg-primary">
+                                
+                                <h5>@formTitle</h5>
+                                <p>@formText</p>
+                                 <img src="@formImage" alt="support-box-background-image">
+                                <form>
+                                    <input type="email" placeholder="@formPlaceholderText">
+                                    <button><i class="fa-regular fa-envelope"></i></button>
+                                </form>
+                            </div>
+                        </nav>
+                    </div> 
+                </div>
+            </section>

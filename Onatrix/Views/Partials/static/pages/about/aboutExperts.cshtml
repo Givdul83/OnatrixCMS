@@ -1,0 +1,62 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+    var reveiwsImage = Model?.Value<IPublishedContent>("reviewsImage")?.Url() ?? "";
+    
+}
+ <section class="our-experts">
+                <div class="container">
+                    <div class="heading">
+                        <h6>@Model.Value("expertsHeading")</h6>
+                        <h2>@Model.Value("expertsTitle")</h2>
+                    </div>
+
+                    @* <div class="experts">
+                        <div class="big">
+                            <div class="expert-big">
+                                <img src="./images/expertimage1.svg" alt="Expert 1">
+                                <h4>Brandon Newton</h4>
+                                <p>Financial Advisor at Onatrix</p>
+                            </div>
+    
+                            <div class="expert-big">
+                                <img src="./images/expertimage2.svg" alt="Expert 2">
+                                <h4>AJ Carter</h4>
+                                <p>Financial Advisor at Onatrix</p>
+                            </div>
+    
+                            <div class="expert-big">
+                                <img src="./images/expertimage3.svg" alt="Expert 3">
+                                <h4>Aaron Lambert</h4>
+                                <p>Business Specialist at Onatrix</p>
+                            </div>
+                        </div>
+
+                        <div class="small projects-grid">  
+                            <div class="expert-small">
+                                <img src="./images/expertimage4.svg" alt="Expert 4">
+                                <h4>Tina Fox</h4>
+                                <p>CEO & Founder at Onatrix</p>
+                            </div>
+
+                            <div class="expert-small">
+                                <img src="./images/expertimage5.svg" alt="Expert 5">
+                                <h4>Brandon Kerr</h4>
+                                <p> CFO & Co-Founderat Onatrix</p>
+                            </div>
+
+                            <div class="expert-small">
+                                <img src="./images/expertimage6.svg" alt="Expert 6">
+                                <h4>Miranda Dayton</h4>
+                                <p>Head of HR at Onatrix</p>
+                            </div>
+                            
+                            <div class="expert-small">
+                                <img src="./images/expertimage7.svg" alt="Expert 7">
+                                <h4>Kevin Gardner</h4>
+                                <p>Banking Advisor at Swedbank</p>
+                            </div>
+                        </div>
+                    </div> *@
+                </div>
+            </section>

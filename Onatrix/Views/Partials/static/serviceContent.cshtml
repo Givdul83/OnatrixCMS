@@ -1,0 +1,50 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using Umbraco.Cms.Core.Routing;
+@inject IPublishedUrlProvider PublishedUrlProvider;
+ 
+ 
+@{
+  var content = Umbraco.Content(Guid.Parse("0afc68c2-58d0-448c-bbdb-5d58943bd3fd"));
+  var selection = Enumerable.Empty<IPublishedContent>();
+   
+    if (content != null)
+    {
+        selection = content.ChildrenOfType("servicesItemTemplate").Where(x => x.IsVisible());
+    }
+    var isServicePage = Model.Url(PublishedUrlProvider) == "/services/";
+}
+ 
+ 
+<section class="our-services @(isServicePage ? "bg-light" : "bg-gray")">
+    <div class="container">
+        <div class="heading">
+            
+            @if (isServicePage)
+            {
+                <h2>@Model?.Value("solutionsTitle")</h2>
+            }
+            else
+            {
+                <h6>@Model?.Value("ourServicesHeading")</h6>
+                <h2>@Model?.Value("ourServicesTitle")</h2>
+            }
+        </div>
+ 
+        <div class="projects-grid fade">                  
+            @foreach (var item in selection){
+                var title = item?.Value<string>("pageTitle") ?? "";
+                var thumbnail = item?.Value<IPublishedContent>("thumbnail")?.Url() ?? "";
+                var description = item?.Value<string>("description") ?? "";                        
+               
+                <a href="@item.Url()">
+                    <div class="box">
+                            <h5>@title</h5>
+                            <img src="@thumbnail" alt="@item.Name">
+                            <p class="text">@description</p>
+                    </div>
+                </a>                          
+            }          
+        </div>
+    </div>
+</section>

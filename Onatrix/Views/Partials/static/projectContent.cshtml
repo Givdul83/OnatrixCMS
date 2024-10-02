@@ -1,0 +1,107 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using Umbraco.Cms.Core.Routing;
+@inject IPublishedUrlProvider PublishedUrlProvider;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+ 
+ 
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var projectStaticRight= rootContents?.FirstOrDefault(x => x.ContentType.Alias == "projectStaticRight") ?? null;
+
+    var tagsTitle = projectStaticRight?.Value<string>("tagsTitle") ?? "";
+    
+    var tags = projectStaticRight?.Value<IEnumerable<string>>("tags") ?? Enumerable.Empty<string>();
+
+    var formTitle = projectStaticRight?.Value<string>("formTitle") ?? "";
+    var formText = projectStaticRight?.Value<string>("formText") ?? "";
+    var formPlaceholderText = projectStaticRight?.Value<string>("formPlaceholderText") ?? "";
+
+
+    var formImage = projectStaticRight?.Value<IPublishedContent>("formImage")?.Url() ?? "";
+
+
+    var content = Umbraco.Content(Guid.Parse("2d9105f4-07c4-439f-9349-d851cbef3b69"));
+    var selection = Enumerable.Empty<IPublishedContent>();
+   
+    
+
+    if (content != null)
+    {
+        selection = content.ChildrenOfType("projectItemTemplate").Where(x => x.IsVisible());
+        
+    }
+    
+}
+
+
+
+
+ <section class="projects-content bg-light">
+                <div class="container">
+                    <div class="content-left">
+                        @foreach(var item in selection)
+                        {
+                            var title = item?.Value<string>("pageTitle") ?? "";
+                            var date = item?.Value<DateTime>("projectDate").ToString("MMMM dd, yyyy") ?? "";
+                            var thumbnail = item?.Value<IPublishedContent>("thumbnail")?.Url() ?? "";
+                            var description = item?.Value<string>("projectDescription") ?? "";  
+                            <a href="@item.Url()" class="article">
+                                
+                                <img src="@thumbnail" alt="article-image">
+                            
+                                     <div class="info">
+                                        <h4>@title</h4>
+                                        <p class="date"><i class="fa-solid fa-calendar-days"></i> @date</p>
+                                        <p>@description</p>
+                                        <h6>Read more <span><i class="fa-solid fa-arrow-right"></i></span></h6>
+                                    </div>
+                            </a>
+
+                        <hr>
+
+                        }
+                        
+
+                        
+
+                        <div class="buttons">
+                            <a class="link-gray" href="#">Prev</a>
+                            <a class="btn-menu" href="#">1</a>
+                            <a class="link-primary" href="#">2</a>
+                            <a class="link-primary" href="#">Next</a>
+                        </div>
+                    </div>
+
+                    <div class="content-right">
+                        <nav>
+                            <h4>@tagsTitle</h4>
+
+                            <div class="buttons">
+                                 @foreach(var tag in tags)
+                                    {
+                               
+                                <div>
+                                    <a href="#" class="btn btn-light">@tag</a>
+                                   
+                                 </div>
+                                     }
+                            </div>
+
+                            <div class="box bg-primary">
+                                
+                                <h5>@formTitle</h5>
+                                <p>@formText</p>
+                                 <img src="@formImage" alt="support-box-background-image">
+                                <form>
+                                    <input type="email" placeholder="@formPlaceholderText">
+                                    <button><i class="fa-regular fa-envelope"></i></button>
+                                </form>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+
+
+

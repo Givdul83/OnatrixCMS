@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Routing;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@inject IPublishedUrlProvider PublishedUrlProvider
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var singleServicLeft = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "singleServiceStaticLeft") ?? null;
+
+}

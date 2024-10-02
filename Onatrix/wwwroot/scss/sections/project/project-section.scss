@@ -1,0 +1,248 @@
+@import "../../mixins/mixins-media.scss";
+
+.projects-content {
+
+    .container {
+
+        @include desktop {
+            padding: 50px 0;
+            display: flex;
+        }
+
+        .content-left {
+            @include desktop {
+                border-right: 1px solid #ECECEC;
+                padding-right: 65px;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .article {
+                padding: 25px 0;
+
+                @include desktop {
+                    display: flex;
+                    gap: 20px;
+                    max-width: 770px;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+
+
+                img {
+                    width: 90%;
+
+                    @include desktop {
+                        width: auto;
+                    }
+                }
+
+                .info {
+                    padding: 0 20px;
+                    text-decoration: none;
+
+                    @include desktop {
+                        padding: 0;
+                    }
+
+                    h4 {
+                        font-size: 18px;
+                        font-weight: 600;
+                        margin: 15px 0 5px 0;
+
+                        @include desktop {
+                            font-size: 22px;
+                            margin: 0;
+                        }
+                    }
+
+                    .date {
+                        color: #9C9EA6;
+                        font-size: 14px;
+                        margin: 0;
+
+                        @include desktop {
+                            margin: 0;
+                        }
+                    }
+
+                    p {
+                        font-size: 14px;
+                        margin-bottom: 20px;
+                        color: #171717;
+                    }
+
+                    h6 {
+                        color: var(--color-default);
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            hr {
+                width: 100%;
+                border: 1px solid #ECECEC;
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                margin: 30px 0 80px 0;
+
+                .link-gray {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #EAEAEA;
+                    text-decoration: none;
+                }
+
+                .btn-menu {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    background-color: transparent;
+                    color: var(--color-primary);
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+
+                .link-primary {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: var(--color-primary);
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .content-right {
+            padding: 30px 0;
+
+            @include desktop {
+                padding: 20px 0 0 70px;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+
+                @include tablet {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: 'h4 h4' 'buttons box';
+                }
+
+                @include desktop {
+                    display: block;
+                }
+
+                h4 {
+                    grid-area: h4;
+                }
+
+                .buttons {
+                    grid-area: buttons;
+                    display: grid;
+                    grid-template-columns: max-content max-content;
+                    gap: 10px;
+
+                    @include desktop {
+                        margin-bottom: 9rem;
+                    }
+
+                    div {
+                        display: flex;
+                    }
+
+                    .btn-light {
+                        margin-top: 10px;
+                        padding: 10px 15px;
+                        border-radius: 20px;
+                        justify-self: start;
+                        align-self: start;
+                        width: auto;
+                    }
+                }
+
+                .box {
+                    grid-area: box;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 3px;
+                    max-width: 306px;
+                    height: 223px;
+                    padding: 30px 20px;
+                    margin: 25px 0;
+
+                    @include desktop {
+                        max-width: 350px;
+                    }
+
+                    h5 {
+                        padding-top:1rem;
+                        color: var(--color-accent);
+                        align-self:start;
+                    }
+
+                    img {
+                        position:relative;
+                        right: -20px;
+                        z-index: 0;
+                        align-self: end;
+                        transform: rotate(-20deg);
+                        transform-origin:top right;
+                    }
+
+                    form {
+                        display: flex;
+                        width: 90%;
+                        position: absolute;
+                       
+                        bottom: 30px;
+
+
+
+                        input {
+                            display: flex;
+                            width: 100%;
+                            position: relative;
+                            padding: 20px 15px;
+                            border: 1px solid var(--color-primary);
+                            border-radius: 3px;
+
+                            &::placeholder {
+                                font-size: 13px;
+                                color: #9C9EA6;
+                                font-style: italic;
+                            }
+                        }
+
+                        button {
+                            position: absolute;
+                            right: 15px;
+                            top: 17px;
+                            border: none;
+                            color: var(--color-primary);
+                            background-color: var(--color-light);
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

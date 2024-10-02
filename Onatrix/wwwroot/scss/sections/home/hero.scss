@@ -1,0 +1,78 @@
+@import "../../mixins/mixins-media.scss";
+
+.hero {
+
+    .image {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 90%;
+
+
+
+            @include desktop {
+                position: absolute;
+                top: 0;
+                z-index: 0;
+                width: auto;
+            }
+        }
+    }
+
+    .fade {
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
+
+    .fade.visible {
+        opacity: 1;
+    }
+
+    .fade.hidden {
+        opacity: 0;
+    }
+
+
+
+
+    .container {
+
+        .hero-content {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+
+            @include desktop {
+                display: block;
+                text-align: left;
+                max-width: 570px;
+            }
+
+            h1 {
+                font-size: 20px;
+                margin: 10px 0;
+
+                @include desktop {
+                    font-size: 70px !important;
+                    margin: 80px 0 1rem 0;
+                }
+            }
+
+            p {
+                font-size: 12px;
+
+                @include tablet {
+                    font-size: 16px;
+                }
+            }
+
+            a {
+                margin-top: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,141 @@
+@import "../mixins/mixins-media.scss";
+
+header {
+
+    .header-top-info {
+        padding: 15px 0 10px 0;
+
+        .container {
+            display: block;
+
+            @include tablet {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+
+            p {
+                padding-bottom: 10px;
+
+                @mixin tablet {
+                    padding: 0;
+                }
+            }
+
+            .social-media {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: ease-in-out 0.3s;
+
+                a {
+                    color: var(--color-light);
+                    padding-left: 10px;
+                    padding-right: 10px;
+
+                    &[target="_blank"]::after {
+                        content: none;
+                    }
+
+                    &:hover {
+                        color: var(--color-accent);
+                        transform: scale(1.05);
+                    }
+                }
+
+                .facebook {
+                    border-left: 1px solid var(--color-light);
+                }
+
+                .twitter {
+                    border-left: 1px solid var(--color-light);
+                }
+
+                .linked-in {
+                    border-left: 1px solid var(--color-light);
+                    border-right: 1px solid var(--color-light);
+                }
+            }
+        }
+    }
+
+    .header-nav {
+        padding: 15px 0;
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas: "img img img search" "nav nav nav nav";
+
+            @include tablet {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            img {
+                grid-area: img;
+                padding-left: 30px;
+                transition: ease-in-out 0.3s;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+                @include tablet {
+                    padding: 0;
+                }
+            }
+
+            .head-nav {
+                grid-area: nav;
+
+
+                .head-link {
+                    color: var(--color-primary);
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    margin: 10px 10px 0 10px;
+                    text-decoration: none;
+
+
+
+                    @include tablet {
+                        margin-left: 20px;
+                        margin-right: 20px;
+                    }
+
+                    &:hover {
+                        color: var(--color-accent);
+                    }
+                }
+
+
+                .head-link-active {
+                    color: var(--color-secondary);
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    margin: 10px 10px 0 10px;
+                    text-decoration: none;
+                }
+            }
+
+            .search {
+                display: flex;
+                align-items: center;
+                grid-area: search;
+                color: var(--color-primary);
+                font-weight: 700;
+                text-decoration: none;
+                border: none;
+                background-color: transparent;
+
+                @include tablet {
+                    display: block;
+                }
+            }
+        }
+    }
+}

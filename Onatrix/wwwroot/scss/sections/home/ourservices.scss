@@ -1,0 +1,81 @@
+@import "../../mixins/mixins-media.scss";
+@import "../../colors/colors.scss";
+
+.our-services {
+    padding: 80px 0 50px 0;
+
+    @include tablet {
+        padding: 80px 0 100px 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .heading {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            max-width: 580px;
+        }
+
+        .projects-grid {
+            gap: 20px;
+
+            a {
+                text-decoration: none;
+
+
+
+
+
+                .box {
+                    margin-top: 5px;
+                    padding: 20px 0;
+                    background-color: var(--color-light);
+                    width: 370px;
+                    height: 423px;
+                    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+                    }
+
+                    h5 {
+                        font-weight: 600;
+                        padding: 0 0 20px 20px;
+                    }
+
+                    .text {
+                        font-size: 14px;
+                        padding: 25px 0 0 20px;
+                        color: var(--color-dark);
+
+                        &:hover {
+                            color: var(--color-secondary);
+                        }
+                    }
+                }
+            }
+        }
+
+        .fade {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .fade.visible {
+            opacity: 1;
+        }
+
+        .fade.hidden {
+            opacity: 0;
+        }
+    }
+}
+

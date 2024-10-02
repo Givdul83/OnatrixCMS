@@ -1,0 +1,1 @@
+﻿.container{width:100%;}@media(min-width:720px){.container{max-width:720px;}}@media(min-width:1400px){.container{max-width:1320px;}}.projects-grid{display:grid;grid-template-columns:1fr;}@media(min-width:720px){.projects-grid{grid-template-columns:1fr 1fr;}}@media(min-width:1400px){.projects-grid{grid-template-columns:repeat(3,1fr);}}

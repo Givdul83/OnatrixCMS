@@ -1,0 +1,63 @@
+﻿.container {
+  width: 100%;
+}
+@media (min-width: 720px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1400px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/*a {
+    @include btn;
+    @include button-colors(var(--color-primary),var(--color-secondary),var(--color-accent),var(--color-primary));
+}
+
+button {
+    @include btn;
+    @include button-colors(var(--color-primary),var(--color-secondary),var(--color-accent),var(--color-primary));
+}
+
+.btn-primary {
+    @include btn;
+    @include button-colors(var(--color-primary),var(--color-secondary),var(--color-accent),var(--color-primary));
+}
+*/
+.container, .container-fluid {
+  position: relative;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 720px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
