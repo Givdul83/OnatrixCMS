@@ -28,21 +28,6 @@
     </div>
     </div>
  
-   @* <div class="header-nav bg-light">
-    <div class="container">
-        <a href="/">
-        <img src="@siteLogotype" alt="@siteName">
-        </a>
-        <nav>
-            <a href="/about/">About</a>
-            <a href="/our-services/">Services</a>
-            <a href="/projects/">Projects</a>
-            <a href="/contact/">Contact</a>
-        </nav>
-        <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
-    </div>*@
-     
     
 
 
@@ -63,8 +48,12 @@
             }
             
         </nav>
-        <button class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div id="search-box" class="search-box">
+                <form action="/search-results/" method="GET">
+                    <input type="text" name="query" placeholder="Search on this site..." class="search-input" />
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-
 </header>

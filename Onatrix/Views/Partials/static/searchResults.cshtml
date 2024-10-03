@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Web
+@using Examine
+@inject IExamineManager ExamineManager
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    var query = HttpContextAccessor.HttpContext.Request.Query["query"].ToString();
+    var searchResults = Enumerable.Empty<IPublishedContent>();
+
+    if (!string.IsNullOrEmpty(query) && ExamineManager.TryGetIndex("ExternalIndex", out var index))
+    {
+        var searcher = index.Searcher;
+        var searchCriteria = searcher.CreateQuery("content").Field("nodeName", query).Or().Field("bodyText", query);
+        var results = searchCriteria.Execute();
+
+        searchResults = results.Select(x => Umbraco.Content(x.Id));
+    }
+}
+
+<section class="searchResults">
+    <div class="container">
+        <h4 class="title">Your Search Results</h4>
+
+        @if (!string.IsNullOrEmpty(query))
+        {
+            if (searchResults.Any())
+            {
+                <p>Showing results for "@query":</p>
+                <ul>
+                    @foreach (var result in searchResults)
+                    {
+                        <li><a href="@result.Url()">@result.Name</a></li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>We could not find what you were looking for. Please try searching with different keywords.</p>
+            }
+        }
+        else
+        {
+            <p>No search query entered.</p>
+        }
+    </div>
+</section>

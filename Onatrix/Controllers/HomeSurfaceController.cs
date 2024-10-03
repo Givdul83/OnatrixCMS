@@ -51,9 +51,9 @@ namespace Onatrix.Controllers
                     ViewData["error-email"] = "Invalid email address";
                 }
 
-                ViewData["error-phone"] = string.IsNullOrEmpty(form.Phone);
+               
 
-                if (string.IsNullOrEmpty(form.Name))
+                if (string.IsNullOrEmpty(form.Phone))
                 {
                     ViewData["error-phone"] = "You must enter your phone number";
                 }
@@ -66,7 +66,25 @@ namespace Onatrix.Controllers
             }
             string subject = "Bekräftelse: Vi har mottagit din information";
             string plainTextContent = $"Hej {form.Name}, tack för att du kontaktade oss.";
-            string htmlContent = $"<strong>Hej {form.Name},</strong><br/>Tack för att du kontaktade oss.";
+            string htmlContent = $@"
+                                    <html>
+                                    <head></head>
+                                    <body style='background-color: #a3b3af; color: #3c2f26; font-family: Arial, sans-serif;'>
+                                        <div style='background-color: #a3b3af; padding: 20px; border-radius: 5px; max-width: 600px; margin: 0 auto; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);'>
+                                            <div style='text-align: center; margin-bottom: 20px;'>
+                                                <img src='https://onatrix20240923143448.azurewebsites.net/media/v5vdjmxw/onatrixlogobrand.svg' alt='Företagslogotyp' style='width: 150px;' /> <!-- Publik URL till logotypen -->
+                                            </div>
+                                            <div style='text-align: left; font-size: 16px;'>
+                                                <p style='font-size:16px; color:#3c2f26;'><strong>Hej {form.Name},</strong></p>
+                                                <p style='font-size:16px; color:#3c2f26;'>Tack för att du kontaktade oss. Vi har mottagit din information och kommer att återkomma så snart som möjligt.</p>
+                                            </div>
+                                            <div style='text-align: center; font-size: 12px; color: #777777; margin-top: 30px;'>
+                                                <p>&copy; {DateTime.Now.Year} Onatrix. Alla rättigheter förbehållna.</p>
+                                            </div>
+                                        </div>
+                                    </body>
+                                    </html>";
+
 
             await _emailService.SendMessageAsync(form.Email, form.Name, subject, plainTextContent, htmlContent);
 

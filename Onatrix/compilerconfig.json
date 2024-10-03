@@ -190,5 +190,9 @@
   {
     "outputFile": "wwwroot/scss/sections/project/single-project.css",
     "inputFile": "wwwroot/scss/sections/project/single-project.scss"
+  },
+  {
+    "outputFile": "wwwroot/scss/sections/searchResult.css",
+    "inputFile": "wwwroot/scss/sections/searchResult.scss"
   }
 ]
